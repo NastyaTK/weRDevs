@@ -1,0 +1,34 @@
+.banner-container{
+    height: 100%;
+    background-image: url(../../../assets/banner.jpg);
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+    padding-top: 120px;
+    .info-container{
+        width: 300px;
+        margin-left: auto;
+        margin-right: 20px;
+        text-align: end;
+        .header{
+            color: #FDD000;
+            font-size: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .info{
+            color: #BABABA;
+            font-size: 18px;
+            letter-spacing: 1px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+@media screen and(max-width: 650px){
+    .banner-container{
+        padding-bottom: 120px;
+    }
+}

@@ -1,0 +1,39 @@
+<section class="calendar-container">
+    <div class="header-container">
+        <span (click)="generateNewMonth('p')" class="material-icons arrow">
+            arrow_back_ios
+        </span>
+        <span class="month-name">{{monthToDisplay}} {{year}}</span>
+        <span (click)="generateNewMonth('n')" class="material-icons arrow">
+            arrow_forward_ios
+        </span>
+    </div>
+    <div class="calendar">
+        <div class="col" *ngFor="let column of columns">
+            <div class="cell" *ngFor="let row of rows"
+                [style.backgroundColor]="row[column]==now.getDate() ? '#FDD000': ''"
+                [style.color]="row[column]==now.getDate() ? '#272829': ''"
+                (click)="displayDetails(monthToDisplay, row[column])">
+                {{ row[column] }}
+            </div>
+        </div>
+
+    </div>
+    <div class="footer">
+        <span *ngFor="let column of columns">{{column}}</span>
+    </div>
+</section>
+
+<section *ngIf="displayInfo" class="popup-container">
+    <form class="info-form" [formGroup]="infoForm">
+        <span (click)="displayInfo = flase" class="material-icons close-btn">
+            close
+        </span>
+        <div class="inputs-container">
+            <input class="info-input" formControlName="displayMonth" type="text"
+                [value]="infoForm.controls.displayMonth.value">
+            <input class="info-input" formControlName=" displayDay" type="text"
+                [value]="infoForm.controls.displayDay.value">
+        </div>
+    </form>
+</section>

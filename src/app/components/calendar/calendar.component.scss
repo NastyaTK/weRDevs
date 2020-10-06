@@ -1,0 +1,108 @@
+.calendar-container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 150px;
+    background-color: #272829;
+    color: #BABABA;
+    .header-container{
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 0 15px 15px;
+        border-bottom: 1px solid #BABABA;
+        width: 80%;
+        .month-name{
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+        .arrow{
+            cursor: pointer;
+        }
+    }
+    .calendar{
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        .col{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .cell{
+            height: 30px;
+            width: 30px;
+            margin: 10px 0;
+            vertical-align: middle;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .footer{
+        padding: 15px;
+        width: 80%;
+        box-sizing: border-box;
+        border-top: 1px solid #BABABA;
+        border-bottom: 1px solid #BABABA;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+}
+.popup-container{
+    position: absolute;
+    top: 120px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 120px);
+    background-color: #272829bd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .info-form{
+        width: 400px;
+        padding: 40px 0 20px;
+        box-sizing: border-box;
+        background-color: #fff;
+        position: relative;
+        .close-btn{
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #FDD000;
+        }
+        .inputs-container{
+            display: flex;
+            justify-content: center;
+            .info-input{
+                padding: 10px;
+                margin: 5px;
+                border: 2px solid #FDD000;
+                font-size: 18px;
+                color: #272829;
+                font-weight: bold;
+                width: 40%;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 650px){
+    .calendar-container{
+        padding-top: 50px;
+    }
+    .popup-container{
+        height: 100vh;
+        top: 61.6px;
+        .info-form{
+            width: 300px;
+        }
+    }
+}
