@@ -1,10 +1,10 @@
 <section class="calendar-container">
     <div class="header-container">
-        <span (click)="generateNewMonth('p')" class="material-icons arrow">
+        <span (click)="generatePrevMonth()" class="material-icons arrow">
             arrow_back_ios
         </span>
         <span class="month-name">{{monthToDisplay}} {{year}}</span>
-        <span (click)="generateNewMonth('n')" class="material-icons arrow">
+        <span (click)="generateNextMonth()" class="material-icons arrow">
             arrow_forward_ios
         </span>
     </div>

@@ -36,29 +36,30 @@ export class CalendarComponent implements OnInit {
 
   constructor(private calendarService: CalendarDataService) { }
 
-  public generateNewMonth(direction) {
-    switch (direction) {
-      case 'p': {
-        this.month--;
-        if (this.month < 1) {
-          this.year--;
-          this.month = 12;
-        }
-        break;
-      }
-      case 'n': {
-        this.month++;
-
-        if (this.month > 12) {
-          this.year++;
-          this.month = 1
-        }
-        break;
-      }
-    }
+  public render() {
     this.monthToDisplay = this.monthNames[this.month - 1];
     this.rows = this.calendarService.createCalendar(this.calendarService.getDays(this.year, this.month), this.year, this.month);
   }
+
+  public generatePrevMonth() {
+    this.month--;
+    if (this.month < 1) {
+      this.year--;
+      this.month = 12;
+    }
+    this.render();
+  }
+
+  public generateNextMonth() {
+    this.month++;
+
+    if (this.month > 12) {
+      this.year++;
+      this.month = 1
+    }
+    this.render();
+  }
+
 
   ngOnInit(): void {
     this.rows = this.calendarService.createCalendar(this.calendarService.getDays(this.year, this.month), this.year, this.month);
